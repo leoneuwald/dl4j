@@ -10,7 +10,7 @@ z.load("org.deeplearning4j:deeplearning4j-core:0.9.1")
 z.load("org.datavec:datavec-spark_2.11:0.9.1_spark_2")
 z.load("org.deeplearning4j:dl4j-spark_2.11:0.9.1_spark_2")
 z.load("org.deeplearning4j:deeplearning4j-zoo:0.9.1")
-```
+```
 
 ```scala
 import scala.collection.JavaConversions._
@@ -78,7 +78,7 @@ val tm = new ParameterAveragingTrainingMaster.Builder(batchSizePerWorker)
   .build()
 
 val sparkNet = new SparkDl4jMultiLayer(sc, zooModel.conf(), tm)
-```
+```
 
 ```scala
 val numEpochs = 5
@@ -86,12 +86,12 @@ for (i <- 0 to numEpochs) {
   println(numEpochs)
   val trained = sparkNet.fit(trainData)
 }
-```
+```
 
 ```scala
 val resultado = sparkNet.doEvaluation(testData, 64, new Evaluation(10))(0)
 println(resultado)
-```
+```
 
 ## Resultado
 ```
